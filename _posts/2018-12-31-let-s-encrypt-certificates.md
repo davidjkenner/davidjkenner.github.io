@@ -3,6 +3,8 @@ layout: post
 title: Let's Encrypt Certificates
 date: 2018-12-31 19:59 +0000
 ---
+![_config.yml]({{ site.baseurl }}/images/letsEncrypt.png)
+
 Let’s Encrypt is a free Certificate Authority (CA) that issues SSL certificates. Let’s Encrypt certificates are only valid for 90 days. You will need to install the lego client on Cloud9.
 
 {% highlight ruby %}
