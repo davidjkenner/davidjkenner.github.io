@@ -1,6 +1,6 @@
 # King of Cloud9
 
-**Full Stack** used with Cloud9.
+**Full Stack:** 
 
 - AWS Cloud9 with AWS CLI and SAM CLI
 - Zsh and Oh-my-Zsh
