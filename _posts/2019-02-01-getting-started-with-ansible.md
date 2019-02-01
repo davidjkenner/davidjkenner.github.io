@@ -53,6 +53,7 @@ ansible-playbook  --key-file cloud9.pem  main.yml
 {% endhighlight %}
 
 Now its time to confirm that Ansible ran some commands successfully
+review the ansible.out log and that Apache2 was installed
 {% highlight ruby %}
 ssh -i "cloud9.pem" ec2-user@$IPADDRESS
 {% endhighlight %}
