@@ -7,8 +7,11 @@ Getting Started with Ansible:
 
 Checklist:
 * AWS Account
-* EC2 sandbox called test-box that uses a key pair
-* IP Address of test-box
+* EC2 sandbox 
+*   called test-box 
+*   uses a key pair (ie cloud9.pem)
+*   Fedora\Redhat\Centos operating system
+*   IP Address of test-box
 * Download the pem file to Cloud9 (ie cloud9.pem)
 * Cloud9 up and running
 
@@ -20,7 +23,8 @@ yum  install ansible   	# install ansible on Cloud9
 vim /etc/ansible/hosts	# update to add hosts & ip address
 {% endhighlight %}
 
-Now we create main.yml file that will run shell commands for ec2-user on a sandbox called test-box
+Now we create main.yml file that will run shell commands for ec2-user on a sandbox called test-box.
+NOTE: yml arrangement must be perfect, yml is not forgiving
 {% highlight ruby %}
 ---
 - hosts: test-box
@@ -50,5 +54,5 @@ ansible-playbook  --key-file cloud9.pem  main.yml
 
 Now its time to confirm that Ansible ran some commands successfully
 {% highlight ruby %}
-ssh -i "cloudp.pem" ec2-user@$IPADDRESS
+ssh -i "cloud9.pem" ec2-user@$IPADDRESS
 {% endhighlight %}
