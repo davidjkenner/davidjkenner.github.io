@@ -30,20 +30,29 @@ NOTE: yml arrangement must be perfect, yml is not forgiving
 - hosts: test-box
   remote_user: ec2-user
   tasks:
-  - name: delete log file
-    shell: rm -rf /tmp/ansible.out
+  - name: update Cloud9 / Fedora / Redhat / CentOS
+    shell: sudo yum update -y >> /tmp/os.out
 
-  - name: cat hosts file
-    shell: cat /etc/hosts >> /tmp/ansible.out
+  - name: confirm python is install
+    shell: which python >> /tmp/os.out
 
   - name: check disk space
-    shell: df -h >> /tmp/ansible.out
+    shell: df -h >> /tmp/os.out
 
-  - name: update environmnet
-    shell: sudo yum update -y >> /tmp/ansible.out
+  - name: check uname
+    shell: uname -a >> /tmp/os.out
 
-  - name: install apache2 
-    shell: sudo yum install apache2 -y >> /tmp/ansible.out
+  - name: memory information
+    shell: cat /proc/meminfo >> /tmp/os.out
+
+  - name: cpu info
+    shell:  cat /proc/cpuinfo >> /tmp/os.out
+
+  - name: linux release info
+    shell:  cat /etc/*lease >> /tmp/os.out
+
+  - name: ulimit
+    shell: ulimit -a >> /tmp/os.out
 
 {% endhighlight %}
 
