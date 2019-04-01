@@ -12,7 +12,7 @@ Leverage strong communication and interpersonal skills to develop effective stra
 
 ### More Information
 
-Full stack includes: AWS, Cloud9, Redhat, Terraform, Git, Github, Jira, Jenkins
+Full stack includes: AWS, Cloud9, Redhat, Terraform, Git, Github, Jira, Jenkins, MySQL, Apache2, Tomcat, etc
 
 ### Contact me
 
