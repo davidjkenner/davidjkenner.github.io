@@ -28,12 +28,12 @@ $installDir/mysql/bin/mysqld --version
 
 cat $installDir/mysql/my.cnf           # The MySQL configuration file
  
-cat $installDir/mysql/bitnami/my.cnf   # # Some configuration overrides  
+cat $installDir/mysql/bitnami/my.cnf   # Some configuration overrides  
 
-# The MySQL .pid file allows other programs to find out the PID (Process Identification Number) of a running script. Find it at 
+# The MySQL .pid file allows other programs to find out the PID of a running script.
 cat $installDir/mysql/data/mysqld.pid
 
-# On Unix, MySQL clients can connect to the server in the local machine using an Unix socket file at 
+# MySQL clients can connect to the server in the local machine using an Linux socket file 
 cat $installDir/mysql/tmp/mysql.sock
 
 
@@ -51,8 +51,8 @@ mysql -u root -p$DB_PWD < backup.sql
 tail -n 100 $installDir/mysql/data/mysqld.log
 
 # Start the MySQL database with the following command:
-mysqld --skip-grant-tables --user=mysql --pid-file=/opt/bitnami/mysql/data/mysqld.pid 
- --skip-external-locking --port=3306 --sock=/opt/bitnami/mysql/tmp/mysql.sock
+mysqld --skip-grant-tables --user=mysql --pid-file=$dataDir/mysqld.pid 
+ --skip-external-locking --port=3306 --sock=$installDir/bitnami/mysql/tmp/mysql.sock
 
 # Open a new console and try to log in the database:
 mysql -u root -p 
@@ -68,21 +68,20 @@ mysql -u root -p
 # Remove anonymous users:
 
  mysql> DELETE FROM mysql.user WHERE User='';
-Remove the test database and access to it:
 
+# Remove the test database and access to it:
  mysql> DROP DATABASE test;
  mysql> DELETE FROM mysql.db WHERE Db='test' OR Db='test\\_%';
-Disallow root login remotely:
 
+# Disallow root login remotely:
  mysql> DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');
-Do not forget to reload the privileges tables to apply the changes:
 
+# Do not forget to reload the privileges tables to apply the changes:
  mysql> FLUSH PRIVILEGES;
-Change your root user password.
 
-It is strongly recommended that you do not have empty passwords for any user accounts when using the server for any production work.
+# Change your root user password.
 
-If you do not need remote access, uncomment the line
+# If you do not need remote access, uncomment the line
 
  #bind-address=127.0.0.1
 in the MySQL configuration file to only listen for connections on the local machine. Restart the server once done.
