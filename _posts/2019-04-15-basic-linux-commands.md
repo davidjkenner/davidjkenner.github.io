@@ -3,7 +3,7 @@ layout: post
 title: Basic Linux commands
 date: 2019-04-15 21:54 +0000
 ---
-Some useful commands to get you started with AWS CLI.  They are all describe commands, so no possibility of creating or deleting something.
+Some useful commands to get you started with Cloud9 terminal:
 
 {% highlight ruby %}
 pwd                           		# present working directory
