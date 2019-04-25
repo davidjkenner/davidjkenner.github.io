@@ -13,7 +13,7 @@ sudo su -     #switch to root
 aws     #aws client
 sam     #serverless application manager
 cd      #change directory
-cat/etc/*lease      #version of Linux you are using
+cat /etc/*lease      #version of Linux you are using
 find . -name $FILE_NAME        #find command
 which       #tells if it is a command and it’s location
 ssh     #remote into another Linux server
